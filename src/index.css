@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .gradient-border {
+    @apply p-[2px] rounded-lg bg-gradient-to-r from-[#969696] to-[#343434];
+  }
+}
+
+
