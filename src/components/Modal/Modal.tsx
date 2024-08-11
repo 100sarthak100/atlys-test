@@ -4,16 +4,21 @@ export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  closeOnBackgroundClick?: boolean;
 }
 
 const Modal = (props: ModalProps) => {
-  const { isOpen, onClose, children } = props;
+  const { isOpen, onClose, children, closeOnBackgroundClick = false } = props;
 
   if (!isOpen) {
     return null;
   }
 
   const handleModalClose = (e) => {
+    if(!closeOnBackgroundClick) {
+      return;
+    }
+
     e.stopPropagation();
 
     if (e.target === e.currentTarget) {
